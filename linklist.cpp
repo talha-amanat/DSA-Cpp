@@ -1,33 +1,39 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-struct node{
+
+struct node {
     int data;
     node* next;
-
-   
 };
- 
-int main(){
 
-  node* head=new node;
-  head->data=5;
-  head->next=nullptr;
+void insertAtEnd(node*& head,int val){
+  node* newnode=new node;
+  newnode->data=val;
+  newnode->next=nullptr;
 
- node* mid=new node;
-  mid->data=25;
-  mid->next=nullptr;
+  if(head==nullptr){
+    head=newnode;
+    return;
+  }
 
-   node* last=new node;
-  last->data=15;
-  last->next=nullptr;
+  node* temp=head;
+  while(temp->next!=nullptr){
+    temp=temp->next;
+  }
+  temp->next=newnode;
+};
 
-  
-head->next=mid;
-mid->next=last;
+int main() {  
+node* head=nullptr;
 
- node* temp=head;
-  while(temp!=nullptr){
-    cout<<temp->data<<endl;
-  temp=temp->next;
-}
+   insertAtEnd(head,6);
+   insertAtEnd(head,4);
+   insertAtEnd(head,2);
+   insertAtEnd(head,3);
+
+   node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data<<"->";
+        temp = temp->next;
+    }
 }
