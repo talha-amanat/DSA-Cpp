@@ -28,6 +28,10 @@ void insertAtEnd(node*& head,int val){
   temp->next=newnode;
 }
 
+void deleteNode(node*& head,int val){
+  if(head==nullptr){return;}
+}
+
 int main() {  
 node* head=nullptr;
 
