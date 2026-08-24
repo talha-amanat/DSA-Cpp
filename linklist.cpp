@@ -52,6 +52,14 @@ temp->next=todelete->next;
 delete todelete;
 }
 
+void printlist(node*& head){
+  node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data<<"->";
+        temp = temp->next;
+    }
+}
+
 int main() {  
 node* head=nullptr;
 
@@ -64,9 +72,5 @@ node* head=nullptr;
 
 deleteNode(head, 4);
 
-  node* temp = head;
-    while (temp != nullptr) {
-        cout << temp->data<<"->";
-        temp = temp->next;
-    }
+  printlist(head);
 }
