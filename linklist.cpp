@@ -30,6 +30,26 @@ void insertAtEnd(node*& head,int val){
 
 void deleteNode(node*& head,int val){
   if(head==nullptr){return;}
+
+  if(head->data==val){
+    node* temp=head;
+    head=head->next;
+    delete temp;
+    return;
+  }
+  node* temp=head;
+  while(temp->next!=nullptr && temp->next->data!=val){
+    temp=temp->next;
+  }
+  if(temp->next==nullptr){
+    cout<<val<<"list mein nahi mila"<<endl;
+    return;
+  }
+
+
+node* todelete=temp->next;
+temp->next=todelete->next;
+delete todelete;
 }
 
 int main() {  
@@ -42,7 +62,9 @@ node* head=nullptr;
 
    insertAtBegining(head,7);
 
-   node* temp = head;
+deleteNode(head, 4);
+
+  node* temp = head;
     while (temp != nullptr) {
         cout << temp->data<<"->";
         temp = temp->next;
