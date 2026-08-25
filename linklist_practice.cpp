@@ -5,7 +5,12 @@ struct node{
     int data;
     node* next;
 };
-
+void insertAtBegining(node*& head,int val){
+    node* newnode=new node;
+    newnode->data=val;
+    newnode->next=head;
+    head=newnode;
+}
 void insertAtEnd(node*& head,int val){
     node* newnode=new node;
     newnode->data=val;
@@ -38,6 +43,9 @@ void sh (node*& head) {
 
 int main(){
     node* head=nullptr;
+insertAtBegining(head,3);
+    insertAtBegining(head,2);
+insertAtBegining(head,1);
 
     insertAtEnd(head,10);
     insertAtEnd(head,20);
