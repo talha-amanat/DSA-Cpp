@@ -59,7 +59,25 @@ void printlist(node*& head){
         temp = temp->next;
     }
 }
+void search(node*& head,int val){
+  node* temp=head;
+  bool found=false;
 
+  while(temp !=nullptr && temp->data!=val){
+    temp=temp->next;
+  }
+  if(temp != nullptr){
+    found=true;
+  }
+  
+  if(found){
+    cout<<val<<" val found"<<endl;
+  }else{
+    cout<<val<<" val not found"<<endl;
+  }
+  
+
+}
 int main() {  
 node* head=nullptr;
 
@@ -71,6 +89,6 @@ node* head=nullptr;
    insertAtBegining(head,7);
 
 deleteNode(head, 4);
-
+  search(head,5);
   printlist(head);
 }
