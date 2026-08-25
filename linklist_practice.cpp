@@ -30,7 +30,28 @@ void insertAtEnd(node*& head,int val){
     temp->next=newnode;
 }
 
-void sh (node*& head) {
+void deletenode(node*& head,int val){
+    if(head==nullptr){return;}
+
+node* temp= head;
+
+if(val==head->data){
+    head=head->next;
+    delete temp;
+    return;
+}
+
+while(temp->next!=nullptr && temp->next->data!=val ){
+    temp=temp->next;
+}
+
+node* todelete=temp->next;
+temp->next=todelete->next;
+delete todelete;
+return;
+}
+
+void  print(node*& head) {
     node* temp=head;
 
     while (temp!=nullptr)
@@ -41,6 +62,26 @@ void sh (node*& head) {
     
 };
 
+void search(node*& head,int val){
+    node* temp=head;
+    bool found = false;
+
+    if(temp!=nullptr && val!=temp->data  ){
+        temp=temp->next;
+    }
+
+    if(val==temp->data){
+        found=true;
+    }
+
+    if(found){
+        cout<<val<<" val found"<<endl;
+    }else{
+        cout<<val<<" val not found"<<endl;
+    }
+}
+
+
 int main(){
     node* head=nullptr;
 insertAtBegining(head,3);
@@ -50,6 +91,12 @@ insertAtBegining(head,1);
     insertAtEnd(head,10);
     insertAtEnd(head,20);
     insertAtEnd(head,30);
+ insertAtEnd(head,7);
+  insertAtEnd(head,7);
+deletenode(head,1);
+deletenode(head,7);
 
-    sh(head);
+search(head,4);
+
+    print(head);
 }
