@@ -26,6 +26,14 @@ stacknode* temp=top;
 top=top->next;
 delete temp;
 }
+void peek(stacknode*& top){
+    if(top==nullptr){
+        cout<<"stack is empty"<<endl;
+        return;
+    }
+
+    cout<<"Top value "<<top->data<<endl;
+}
 int main() {
     stacknode* top = nullptr;
 
@@ -33,8 +41,8 @@ int main() {
     push(top, 20);
     push(top, 30);
 
-    //pop(top);   // 30 nikal jayega
-
+    pop(top);   
+    peek(top);
     stacknode* temp = top;
     while (temp != nullptr) {
         cout << temp->data << " ";
