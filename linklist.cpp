@@ -3,17 +3,20 @@ using namespace std;
 
 struct node {
     int data;
+    string name;
     node* next;
 };
-void insertAtBegining(node*& head,int val){
+void insertAtBegining(node*& head,int val,string name){
 node* newnode=new node;
 newnode->data=val;
+ newnode->name=name;
 newnode->next=head;
 head=newnode;
 }
-void insertAtEnd(node*& head,int val){
+void insertAtEnd(node*& head,int val,string name){
   node* newnode=new node;
   newnode->data=val;
+  newnode->name=name;
   newnode->next=nullptr;
 
   if(head==nullptr){
@@ -55,7 +58,7 @@ delete todelete;
 void printlist(node*& head){
   node* temp = head;
     while (temp != nullptr) {
-        cout << temp->data<<"->";
+        cout << temp->data<<" "<<temp->name<<"->";
         temp = temp->next;
     }
 }
@@ -81,12 +84,12 @@ void search(node*& head,int val){
 int main() {  
 node* head=nullptr;
 
-   insertAtEnd(head,6);
-   insertAtEnd(head,4);
-   insertAtEnd(head,2);
-   insertAtEnd(head,3);
+   insertAtEnd(head,6,"talha");
+   insertAtEnd(head,4,"ali");
+   insertAtEnd(head,2,"fatima");
+   insertAtEnd(head,3,"miyamagi");
 
-   insertAtBegining(head,7);
+   insertAtBegining(head,7,"miyamagi2");
 
 deleteNode(head, 4);
   search(head,5);
