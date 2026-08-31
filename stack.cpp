@@ -26,6 +26,8 @@ stacknode* temp=top;
 top=top->next;
 delete temp;
 }
+
+
 void peek(stacknode*& top){
     if(top==nullptr){
         cout<<"stack is empty"<<endl;
