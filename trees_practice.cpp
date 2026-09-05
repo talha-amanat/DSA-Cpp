@@ -57,7 +57,7 @@ void deletenode(treenode*& root,int val){
     if(val<root->data){
         deletenode(root->left,val);
     }else if(val>root->data){
-        deletenode(root->left,val);
+        deletenode(root->right,val);
     }else{
 
         if(root->left==nullptr && root->right==nullptr){

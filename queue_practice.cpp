@@ -27,4 +27,19 @@ void dequeue(queue*& front,queue*& rear,int val){
         cout<<"Queue is empty"<<endl;
         return;
  }
+queue* temp=front;
+front=front->next;
+
+ if(front==nullptr){
+    rear=nullptr;
+ }
+ delete temp;
+}
+
+void peek(queue*& front){
+     if(front==nullptr){
+        cout<<"Queue is empty"<<endl;
+        return;
+ }
+ cout<<front->data<<endl;
 }
